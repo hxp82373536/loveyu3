@@ -1,6 +1,8 @@
-import {createStore, compose, combineReducers} from 'redux';
+import {createStore, compose, combineReducers , applyMiddleware} from 'redux';
 import SignallingCheck from './views/SignallingAnalyse/SignallingCheck/SignallingCheckRedux'
 import DevTools from './redux/middlewares/DevTools';
+import createSagaMiddleware from 'redux-saga'
+import sagas from './redux/middlewares/sagas'
 
 
 // 整体的初始状态
@@ -19,9 +21,10 @@ const reducers = {
 
 // 组合最终的store
 const createStoreWithMiddleware = compose(
-  //applyMiddleware(ThunkMiddleware, FetchMiddleware, routerMiddleware(browserHistory)),
+  applyMiddleware(createSagaMiddleware(...sagas)),
   DevTools.instrument()
 )(createStore);
+
 const store = createStoreWithMiddleware(combineReducers(reducers), initState);
 
 export default store;

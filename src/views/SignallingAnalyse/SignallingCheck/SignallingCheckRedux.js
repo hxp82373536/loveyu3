@@ -10,53 +10,16 @@ const LOAD_SIGNALLING = 'LOAD_SIGNALLING';
 const LOAD_SIGNALLING_SUCCESS = 'LOAD_SIGNALLING_SUCCESS';
 const LOAD_SIGNALLING_ERROR = 'LOAD_SIGNALLING_ERROR';
 
-// let nextSeqId = 0;
+let nextSeqId = 0;
 
 
 //定义信令检索的action
-export function loadSIGNALLING() {
+export function loadSignalling() {
   return {
     types: [LOAD_SIGNALLING, LOAD_SIGNALLING_SUCCESS, LOAD_SIGNALLING_ERROR],
-    url: '/src/mock/SIGNALLING.json',
+    //url: '/src/mock/SIGNALLING.json',
   };
 }
-
-// export const loadSignalling = () => ({
-//   type: [LOAD_SIGNALLING,LOAD_SIGNALLING_SUCCESS,LOAD_SIGNALLING_ERROR]
-//   url: '/src/mock/SIGNALLING.json',
-// });
-
-export const loadSignallingSuccess = (result) => ({
-  type: LOAD_SIGNALLING_SUCCESS,
-  result
-});
-
-export const loadSignallingError = (error) => ({
-  type: LOAD_SIGNALLING_ERROR,
-  error
-});
-
-// export const fetchSignalling = () => {
-//   return (dispatch) => {
-//     const apiUrl = '/src/mock/SIGNALLING.json';
-//     const seqId = ++ nextSeqId;
-//     const dispatchIfValid = (action) => {
-//       if (seqId === nextSeqId) {
-//         return dispatch(action);
-//       }
-//     }
-//     dispatchIfValid(loadSignalling())
-//     fetch(apiUrl).then((response) => {
-//       response.json().then((responseJson) => {
-//         dispatchIfValid(loadSignallingSuccess(responseJson));
-//       }).catch((error) => {
-//         dispatchIfValid(loadSignallingError(error));
-//       });
-//     }).catch((error) => {
-//       dispatchIfValid(loadSignallingError(error));
-//     })
-//   };
-// }
 
 
 /* 定义reducer, 每个组件只有一个reducer */
