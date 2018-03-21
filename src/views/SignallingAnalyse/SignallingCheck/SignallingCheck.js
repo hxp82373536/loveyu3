@@ -1,27 +1,26 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {loadSIGNALLING} from './SignallingCheckRedux'
-import CheckTable from './table'
+import CheckTable from './CheckTable'
+import * as ActionCreators from './SignallingCheckRedux'
 
-// const actions = {
-//   loadSignalling,
-//   loadSignallingSuccess,
-//   loadSignallingError,
-//   fetchSignalling
-// };
+//es7修饰器写法  需要侵入creact-react-app
+// @connect(
+//   state => ({
+//     signallingList: state.SignallingCheck.signallingList,
+//   }),
+//   dispatch => bindActionCreators(ActionCreators, dispatch)
+//   // dispatch => ({
+// 	// loadSignallings: bindActionCreators(ActionCreators, dispatch)
+//   // })
+// )
 
-@connect(
-  state => ({
-    signallingList: state.SignallingCheck.signallingList,
-  }),
-  dispatch => ({
-    loadSignallings: bindActionCreators(loadSIGNALLING, dispatch)
-  })
-)
 class SignallingCheck extends React.PureComponent {
+  componentDidMount() {
+     this.props.loadSignalling("");
+     console.info(this.props);
+  }
 
-// export default class SignallingCheck extends Component {
   render() {
     return (
       <div>
@@ -31,4 +30,11 @@ class SignallingCheck extends React.PureComponent {
   }
 }
 
-export default SignallingCheck;
+export default connect(
+  state => ({
+    signallingList: state.SignallingCheck.signallingList,
+    loading:state.SignallingCheck.loading,
+    error:state.SignallingCheck.error
+  }),
+  dispatch => bindActionCreators(ActionCreators, dispatch)
+)(SignallingCheck)

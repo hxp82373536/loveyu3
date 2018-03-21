@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Table} from 'antd'
 
 const columns = [
@@ -38,15 +39,15 @@ const columns = [
 ];
 
 class CheckTable extends React.PureComponent {
-  componentWillMount() {
-     console.info(this.props.loadSignallings);
-     this.props.loadSignallings;
-     console.info(this.props.loadSignallings);
-  }
   render() {
-    return (<Table dataSource={this.props.signallingList} columns={columns}/>);
+    return (<Table dataSource={this.props.signallingList} columns={columns} rowKey={(r, i) => (i)}/>);
   }
-
 }
+
+CheckTable.propTypes = {
+  loading: PropTypes.bool.isRequired,
+  error: PropTypes.bool.isRequired,
+  signallingList: PropTypes.array.isRequired
+};
 
 export default CheckTable;

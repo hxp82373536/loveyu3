@@ -1,30 +1,29 @@
-//sagas
-function* rootSaga() {
-  yield[
-    fork(load),
-    //takeLatest('LOAD_DASHBOARD', loadDashboardSequenced)
-  ];
-}
+import {call, put} from 'redux-saga/effects';
+import {takeLatest} from 'redux-saga';
+import {fetchApi} from '../../utils/fetch'
 
+// function fetchApi() {
+//   console.info("fetch")
+//   return fetch('/mock/mock.json')
+//     .then(response => response.json())
+//     .then(data => {
+//       console.info(data);
+//       return data;
+//     })
+// }
 
 function* load() {
   try {
-    const signalling = yield call(getSignalling);
-    yield put({type: 'LOAD_SIGNALLING_SUCCESS', result: signalling});
-  } catch(error) {
-    yield put({type: 'LOAD_SIGNALLING_ERROR', error});
+    const data = yield call(fetchApi)
+    let list= [];
+    list.push(data);
+    yield put({ type: 'LOAD_SIGNALLING_SUCCESS', result: list})
   }
-}
+  catch(error) {
+    yield put({ type: 'LOAD_SIGNALLING_ERROR', error })}
+  }
 
-class  Saga {
- static getUser() {
-   return new Promise((resolve) => {
-     setTimeout(() => {
-       resolve({
-            // email : "somemockemail@email.com",
-            repository: '/src/mock/SIGNALLING.json'
-       });
-     }, 3000);
-   });
- }
+export default function* rootSaga() {
+  console.info("11111");
+  yield* takeLatest('LOAD_SIGNALLING', load)
 }

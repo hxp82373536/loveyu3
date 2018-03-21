@@ -10,14 +10,15 @@ const LOAD_SIGNALLING = 'LOAD_SIGNALLING';
 const LOAD_SIGNALLING_SUCCESS = 'LOAD_SIGNALLING_SUCCESS';
 const LOAD_SIGNALLING_ERROR = 'LOAD_SIGNALLING_ERROR';
 
-let nextSeqId = 0;
 
 
 //定义信令检索的action
-export function loadSignalling() {
+export function loadSignalling(param) {
+  console.info("actions");
   return {
-    types: [LOAD_SIGNALLING, LOAD_SIGNALLING_SUCCESS, LOAD_SIGNALLING_ERROR],
-    //url: '/src/mock/SIGNALLING.json',
+    type: LOAD_SIGNALLING, //LOAD_SIGNALLING_SUCCESS, LOAD_SIGNALLING_ERROR],
+    url: 'http://localhost:3001/src/mock/SIGNALLING.json',
+    param:param
   };
 }
 
@@ -34,6 +35,7 @@ const reducer = (state = initialState, action) => {
     }
 
     case LOAD_SIGNALLING_SUCCESS: {
+      console.info("success");
       return {
         ...state,
         loading: false,
