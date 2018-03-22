@@ -1,8 +1,12 @@
 //定义初始状态
 const initialState = {
-  loading: true,
-  error: false,
-  signallingList: [],
+  //状态参数
+  status:{
+    loading: true,
+    error: false,
+  },
+  //查询结果
+  result:[],
 };
 
 //定义信令检索的三个查询状态   actiontypes
@@ -29,26 +33,35 @@ const reducer = (state = initialState, action) => {
     case LOAD_SIGNALLING: {
       return {
         ...state,
-        loading: true,
-        error: false,
+        status:{
+          loading: true,
+          error: false,
+        },
       };
     }
 
     case LOAD_SIGNALLING_SUCCESS: {
+      let result =action.result;
+      let list= [];
+      list.push(result);
       console.info("success");
       return {
         ...state,
-        loading: false,
-        error: false,
-        signallingList: action.result,
+        status:{
+          loading: false,
+          error: false,
+        },
+        result: list,
       };
     }
 
     case LOAD_SIGNALLING_ERROR: {
       return {
         ...state,
-        loading: false,
-        error: true,
+        status:{
+          loading: false,
+          error: true,
+        },
       };
     }
 

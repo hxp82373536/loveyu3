@@ -40,14 +40,14 @@ const columns = [
 
 class CheckTable extends React.PureComponent {
   render() {
-    return (<Table dataSource={this.props.signallingList} columns={columns} rowKey={(r, i) => (i)}/>);
+    return (<Table dataSource={this.props.result} columns={columns} rowKey={(r, i) => (i)}/>);
   }
 }
 
 CheckTable.propTypes = {
   loading: PropTypes.bool.isRequired,
   error: PropTypes.bool.isRequired,
-  signallingList: PropTypes.array.isRequired
+  result: PropTypes.array.isRequired
 };
 
 export default CheckTable;
