@@ -1,18 +1,27 @@
 //定义初始状态
 const initialState = {
   //状态参数
-  status:{
+  table_status:{
+    loading: true,
+    error: false,
+  },
+  detail_status:{
+    modalVisible:false,
     loading: true,
     error: false,
   },
   //查询结果
   result:[],
+  detail_result:[]
 };
 
 //定义信令检索的三个查询状态   actiontypes
 const LOAD_SIGNALLING = 'LOAD_SIGNALLING';
 const LOAD_SIGNALLING_SUCCESS = 'LOAD_SIGNALLING_SUCCESS';
 const LOAD_SIGNALLING_ERROR = 'LOAD_SIGNALLING_ERROR';
+const LOAD_DETAIL = 'LOAD_DETAIL';
+const LOAD_DETAIL_SUCCESS = 'LOAD_DETAIL_SUCCESS';
+const LOAD_DETAIL_ERROR = 'LOAD_DETAIL_ERROR';
 
 
 
@@ -21,7 +30,16 @@ export function loadSignalling(param) {
   console.info("actions");
   return {
     type: LOAD_SIGNALLING, //LOAD_SIGNALLING_SUCCESS, LOAD_SIGNALLING_ERROR],
-    url: 'http://localhost:3001/src/mock/SIGNALLING.json',
+    url: '/mock/mock-table.json',
+    param:param
+  };
+}
+
+export function loadDetail(param) {
+  console.info("actions-detail");
+  return {
+    type: LOAD_DETAIL, //LOAD_SIGNALLING_SUCCESS, LOAD_SIGNALLING_ERROR],
+    url: '/mock/mock-detail.json',
     param:param
   };
 }
@@ -33,7 +51,7 @@ const reducer = (state = initialState, action) => {
     case LOAD_SIGNALLING: {
       return {
         ...state,
-        status:{
+        table_status:{
           loading: true,
           error: false,
         },
@@ -42,23 +60,55 @@ const reducer = (state = initialState, action) => {
 
     case LOAD_SIGNALLING_SUCCESS: {
       let result =action.result;
-      let list= [];
-      list.push(result);
       console.info("success");
       return {
         ...state,
-        status:{
+        table_status:{
           loading: false,
           error: false,
         },
-        result: list,
+        result: result.data,
       };
     }
 
     case LOAD_SIGNALLING_ERROR: {
       return {
         ...state,
-        status:{
+        table_status:{
+          loading: false,
+          error: true,
+        },
+      };
+    }
+
+    case LOAD_DETAIL: {
+      return {
+        ...state,
+        table_status:{
+          loading: true,
+          error: false,
+        },
+      };
+    }
+
+    case LOAD_DETAIL_SUCCESS: {
+      let result =action.result;
+      console.info("success");
+      return {
+        ...state,
+        detail_status:{
+          loading: false,
+          error: false,
+          modalVisible:true
+        },
+        detail_result: result.data,
+      };
+    }
+
+    case LOAD_DETAIL_ERROR: {
+      return {
+        ...state,
+        detail_status:{
           loading: false,
           error: true,
         },

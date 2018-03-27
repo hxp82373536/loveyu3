@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Table} from 'antd'
+import {Modal,Table} from 'antd'
 
 const columns = [
   {
@@ -38,9 +38,37 @@ const columns = [
   }
 ];
 
+let pagination = {
+    total: 100,
+    //defaultCurrent: page,
+    pageSize: 5,
+    showSizeChanger: true,
+    onShowSizeChange: (current, pageSize) => {
+        },
+  }
+
 class CheckTable extends React.PureComponent {
   render() {
-    return (<Table dataSource={this.props.result} columns={columns} rowKey={(r, i) => (i)}/>);
+    return (
+      <div>
+      <Table
+        dataSource={this.props.result}
+        loding={this.props.loading}
+        size="middle"
+        columns={columns}
+        pagination={pagination}
+        rowKey={(r, i) => (i)}
+        onRow={(record) => {
+            return {
+              onDoubleClick:()=>{
+                this.props.loadDetail()
+          }
+        }}}/>
+    <Modal title="信令详情" visible={this.props.modalVisible}>
+       <p>Some contents...</p>
+    </Modal>
+    </div>
+    );
   }
 }
 

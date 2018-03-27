@@ -4,9 +4,9 @@ import {bindActionCreators} from 'redux';
 import CheckTable from './CheckTable'
 import * as ActionCreators from './SignallingCheckRedux'
 
-import DatePicker11 from './DataPicker';
-import { Button,DatePicker } from 'antd';
+import { DatePicker,message,Input } from 'antd';
 const { RangePicker } = DatePicker;
+const Search = Input.Search;
 
 //es7修饰器写法  需要侵入creact-react-app
 // @connect(
@@ -18,38 +18,46 @@ const { RangePicker } = DatePicker;
 //   loadSignallings: bindActionCreators(ActionCreators, dispatch)
 //    })
 // )
-let startTime,endTime,keyWord
+let param={
+  startTime:"",
+  endTime:"",
+  keyWord:""
+}
 class SignallingCheck extends React.PureComponent {
   componentDidMount() {
-    this.props.loadSignalling("");
-    console.info(this.props);
+    this.props.loadSignalling(param);
+    this.error();
+  }
+
+  error(){
+    if(this.props.error)
+    message.error('This is a message of error');
   }
 
   onOk11(datas,dateStrings){
-    console.info("onchange111111");
-    console.info(datas,dateStrings);
-    startTime = dateStrings[0];
-    endTime = dateStrings[1];
-    // console.info(startTime,endTime);
+    param.startTime = dateStrings[0];
+    param.endTime = dateStrings[1];
   }
 
-  onClick(){
-    console.info(startTime,endTime,keyWord);
-    let param={
-      startTime:startTime,
-      endTime:endTime,
-      keyWord:keyWord
-    }
+  onClick(value){
+    param.keyWord=value;
     this.props.loadSignalling(param);
+    this.error();
   }
 
   render() {
-    return (<div>
-      <Button onClick={this.onClick.bind(this)}/>
+    return (
+    <div>
       <RangePicker
         format="YYYY-MM-DD HH:mm"
         placeholder={['Start Time', 'End Time']}
         onChange={this.onOk11.bind(this)}
+      />
+      <Search
+        placeholder="关键字"
+        enterButton="检索"
+        onSearch={this.onClick.bind(this)}
+        style={{ width: 200 }}
       />
       <CheckTable {...this.props}/>
     </div>);
@@ -58,6 +66,7 @@ class SignallingCheck extends React.PureComponent {
 
 export default connect(state => ({
   result: state.SignallingCheck.result,
-  loading: state.SignallingCheck.status.loading,
-  error: state.SignallingCheck.status.error,
+  loading: state.SignallingCheck.table_status.loading,
+  error: state.SignallingCheck.table_status.error,
+  modalVisible:state.SignallingCheck.detail_status.modalVisible
 }), dispatch => bindActionCreators(ActionCreators, dispatch))(SignallingCheck)
