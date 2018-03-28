@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Modal, Table} from 'antd'
+import SignallingDetail from './SignallingDetail'
 
 const columns = [
   {
@@ -38,34 +39,12 @@ const columns = [
   }
 ];
 
-let pagination = {
-  showQuickJumper:true,
-  total: 13,
-  pageSize: 8,
-  showTotal:(total)=>{
-    return `共${total}条`
-  },
-  itemRender:(current, type, originalElement)=>{
-  if (type === 'prev') {
-    return <a>上一页</a>;
-  } else if (type === 'next') {
-    return <a>下一页</a>;
-  }
-  return originalElement;
-}
-  //showTotal:true,
-  //onShowSizeChange: (current, pageSize) => {}
-}
-
 class CheckTable extends React.PureComponent {
   onOk() {
-    console.info("onok")
-    console.info(this.props)
     this.props.closeDetail()
   }
 
   onRecord(record) {
-    console.info(record)
     let param = {
       imsi: record.imsi,
       imei: record.imei
@@ -78,19 +57,46 @@ class CheckTable extends React.PureComponent {
   }
 
   render() {
+    const {
+      total,
+      result,
+      detail_result,
+      loading,
+      //error,
+      modalVisible
+    } = this.props
+    let pagination = {
+      showQuickJumper: true,
+      total: total,
+      pageSize: 8,
+      showTotal: (total) => {
+        return `共${total}条`
+      },
+      itemRender: (current, type, originalElement) => {
+        if (type === 'prev') {
+          return <a>上一页</a>;
+        } else if (type === 'next') {
+          return <a>下一页</a>;
+        }
+        return originalElement;
+      }
+    }
     return (<div>
-      <Table dataSource={this.props.result} loding={this.props.loading} size="middle" columns={columns} pagination={pagination} rowKey={(r, i) => (i)} onRow={this.onRecord.bind(this)}/>
-      <Modal title="信令详情" visible={this.props.modalVisible} onOk={this.onOk.bind(this)} onCancel={this.onOk.bind(this)}>
-        this.state.detail_result
+      <Table dataSource={result} loding={loading} size="middle" columns={columns} pagination={pagination} rowKey={(r, i) => (i)} onRow={this.onRecord.bind(this)}/>
+      <Modal title="信令详情" visible={modalVisible} onOk={this.onOk.bind(this)} onCancel={this.onOk.bind(this)}>
+          <SignallingDetail data={detail_result}/>
       </Modal>
     </div>);
   }
 }
 
 CheckTable.propTypes = {
+  total: PropTypes.number.isRequired,
+  result: PropTypes.array.isRequired,
+  detail_result: PropTypes.array.isRequired,
   loading: PropTypes.bool.isRequired,
   error: PropTypes.bool.isRequired,
-  result: PropTypes.array.isRequired
+  modalVisible: PropTypes.bool.isRequired
 };
 
 export default CheckTable;

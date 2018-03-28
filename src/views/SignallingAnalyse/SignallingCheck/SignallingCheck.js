@@ -34,7 +34,7 @@ class SignallingCheck extends React.PureComponent {
     message.error('This is a message of error');
   }
 
-  onOk11(datas,dateStrings){
+  onChange(datas,dateStrings){
     param.startTime = dateStrings[0];
     param.endTime = dateStrings[1];
   }
@@ -50,7 +50,7 @@ class SignallingCheck extends React.PureComponent {
     <div>
       <RangePicker
         format="YYYY-MM-DD HH:mm"
-        onChange={this.onOk11.bind(this)}
+        onChange={this.onChange.bind(this)}
       />
       <Search
         placeholder="关键字"
@@ -64,6 +64,7 @@ class SignallingCheck extends React.PureComponent {
 }
 
 export default connect(state => ({
+  total:state.SignallingCheck.total,
   result: state.SignallingCheck.result,
   detail_result:state.SignallingCheck.detail_result,
   loading: state.SignallingCheck.table_status.loading,

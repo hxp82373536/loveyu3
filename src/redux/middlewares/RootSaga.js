@@ -1,12 +1,8 @@
-import {take, call, put} from 'redux-saga/effects';
-import {takeEvery, takeLatest} from 'redux-saga';
+import {takeEvery, takeLatest} from 'redux-saga/effects';
 
 import {loadSignalling} from './sagas/loadSignalling'
 import {loadDetail} from './sagas/loadDetail'
 
-export function* helloSaga() {
-  console.log('Hello Saga!')
-}
 
 export function* watchIncrementAsync() {
   yield takeLatest('LOAD_SIGNALLING', loadSignalling)
@@ -14,8 +10,5 @@ export function* watchIncrementAsync() {
 }
 
 export default function* RootSaga() {
-  yield [
-    helloSaga(),
-    watchIncrementAsync()
-  ]
+   yield watchIncrementAsync()
 }

@@ -11,6 +11,7 @@ const initialState = {
     error: false,
   },
   //查询结果
+  total:0,
   result:[],
   detail_result:[]
 };
@@ -29,7 +30,6 @@ const CLOSE_DETAIL='CLOSE_DETAIL'
 
 //定义信令检索的action
 export function loadSignalling(param) {
-  console.info("actions");
   return {
     type: LOAD_SIGNALLING, //LOAD_SIGNALLING_SUCCESS, LOAD_SIGNALLING_ERROR],
     url: '/mock/mock-table.json',
@@ -38,7 +38,6 @@ export function loadSignalling(param) {
 }
 
 export function loadDetail(param) {
-  console.info("actions-detail");
   return {
     type: LOAD_DETAIL,
     url: '/mock/mock-detail.json',
@@ -47,7 +46,6 @@ export function loadDetail(param) {
 }
 
 export function closeDetail() {
-  console.info("actions-close");
   return {
     type: CLOSE_DETAIL,
   };
@@ -69,13 +67,13 @@ const reducer = (state = initialState, action) => {
 
     case LOAD_SIGNALLING_SUCCESS: {
       let result =action.result;
-      console.info("success");
       return {
         ...state,
         table_status:{
           loading: false,
           error: false,
         },
+        total:result.total,
         result: result.data,
       };
     }
@@ -102,7 +100,6 @@ const reducer = (state = initialState, action) => {
 
     case LOAD_DETAIL_SUCCESS: {
       let result =action.result;
-      console.info("success");
       return {
         ...state,
         detail_status:{
@@ -125,7 +122,6 @@ const reducer = (state = initialState, action) => {
     }
 
     case CLOSE_DETAIL: {
-      console.info("close......");
       return {
         ...state,
         detail_status:{
