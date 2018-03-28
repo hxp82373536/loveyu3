@@ -50,7 +50,6 @@ class SignallingCheck extends React.PureComponent {
     <div>
       <RangePicker
         format="YYYY-MM-DD HH:mm"
-        placeholder={['Start Time', 'End Time']}
         onChange={this.onOk11.bind(this)}
       />
       <Search
@@ -66,6 +65,7 @@ class SignallingCheck extends React.PureComponent {
 
 export default connect(state => ({
   result: state.SignallingCheck.result,
+  detail_result:state.SignallingCheck.detail_result,
   loading: state.SignallingCheck.table_status.loading,
   error: state.SignallingCheck.table_status.error,
   modalVisible:state.SignallingCheck.detail_status.modalVisible

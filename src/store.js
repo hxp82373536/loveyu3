@@ -2,7 +2,7 @@ import {createStore, compose, combineReducers , applyMiddleware} from 'redux';
 import SignallingCheck from './views/SignallingAnalyse/SignallingCheck/SignallingCheckRedux'
 import DevTools from './redux/middlewares/DevTools';
 import createSagaMiddleware from 'redux-saga'
-import rootsaga from './redux/middlewares/sagas'
+import RootSaga from './redux/middlewares/RootSaga'
 
 
 // 定义reducer
@@ -29,6 +29,6 @@ const store = createStore(
   middleware
 );
 
-sagaMiddleware.run(rootsaga)
+sagaMiddleware.run(RootSaga)
 export default store;
 // export default store;

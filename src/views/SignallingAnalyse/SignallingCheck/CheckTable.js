@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Modal,Table} from 'antd'
+import {Modal, Table} from 'antd'
 
 const columns = [
   {
@@ -39,36 +39,51 @@ const columns = [
 ];
 
 let pagination = {
-    total: 100,
-    //defaultCurrent: page,
-    pageSize: 5,
-    showSizeChanger: true,
-    onShowSizeChange: (current, pageSize) => {
-        },
+  showQuickJumper:true,
+  total: 13,
+  pageSize: 8,
+  showTotal:(total)=>{
+    return `共${total}条`
+  },
+  itemRender:(current, type, originalElement)=>{
+  if (type === 'prev') {
+    return <a>上一页</a>;
+  } else if (type === 'next') {
+    return <a>下一页</a>;
   }
+  return originalElement;
+}
+  //showTotal:true,
+  //onShowSizeChange: (current, pageSize) => {}
+}
 
 class CheckTable extends React.PureComponent {
+  onOk() {
+    console.info("onok")
+    console.info(this.props)
+    this.props.closeDetail()
+  }
+
+  onRecord(record) {
+    console.info(record)
+    let param = {
+      imsi: record.imsi,
+      imei: record.imei
+    }
+    return {
+      onDoubleClick: () => {
+        this.props.loadDetail(param)
+      }
+    }
+  }
+
   render() {
-    return (
-      <div>
-      <Table
-        dataSource={this.props.result}
-        loding={this.props.loading}
-        size="middle"
-        columns={columns}
-        pagination={pagination}
-        rowKey={(r, i) => (i)}
-        onRow={(record) => {
-            return {
-              onDoubleClick:()=>{
-                this.props.loadDetail()
-          }
-        }}}/>
-    <Modal title="信令详情" visible={this.props.modalVisible}>
-       <p>Some contents...</p>
-    </Modal>
-    </div>
-    );
+    return (<div>
+      <Table dataSource={this.props.result} loding={this.props.loading} size="middle" columns={columns} pagination={pagination} rowKey={(r, i) => (i)} onRow={this.onRecord.bind(this)}/>
+      <Modal title="信令详情" visible={this.props.modalVisible} onOk={this.onOk.bind(this)} onCancel={this.onOk.bind(this)}>
+        this.state.detail_result
+      </Modal>
+    </div>);
   }
 }
 

@@ -19,9 +19,11 @@ const initialState = {
 const LOAD_SIGNALLING = 'LOAD_SIGNALLING';
 const LOAD_SIGNALLING_SUCCESS = 'LOAD_SIGNALLING_SUCCESS';
 const LOAD_SIGNALLING_ERROR = 'LOAD_SIGNALLING_ERROR';
+
 const LOAD_DETAIL = 'LOAD_DETAIL';
 const LOAD_DETAIL_SUCCESS = 'LOAD_DETAIL_SUCCESS';
 const LOAD_DETAIL_ERROR = 'LOAD_DETAIL_ERROR';
+const CLOSE_DETAIL='CLOSE_DETAIL'
 
 
 
@@ -38,9 +40,16 @@ export function loadSignalling(param) {
 export function loadDetail(param) {
   console.info("actions-detail");
   return {
-    type: LOAD_DETAIL, //LOAD_SIGNALLING_SUCCESS, LOAD_SIGNALLING_ERROR],
+    type: LOAD_DETAIL,
     url: '/mock/mock-detail.json',
     param:param
+  };
+}
+
+export function closeDetail() {
+  console.info("actions-close");
+  return {
+    type: CLOSE_DETAIL,
   };
 }
 
@@ -111,6 +120,16 @@ const reducer = (state = initialState, action) => {
         detail_status:{
           loading: false,
           error: true,
+        },
+      };
+    }
+
+    case CLOSE_DETAIL: {
+      console.info("close......");
+      return {
+        ...state,
+        detail_status:{
+          modalVisible: false,
         },
       };
     }
