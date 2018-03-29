@@ -1,0 +1,250 @@
+{
+  "nodes": [
+    {
+      "name": "Timmy"
+    },
+    {
+      "name": "Bear"
+    },
+    {
+      "name": "Cherry"
+    },
+    {
+      "name": "Debbie"
+    },
+    {
+      "name": "Judge"
+    },
+    {
+      "name": "Frederic"
+    },
+    {
+      "name": "Gillenormand"
+    },
+    {
+      "name": "Montparnasse"
+    },
+    {
+      "name": "Women"
+    },
+    {
+      "name": "Judd"
+    },
+    {
+      "name": "Men"
+    },
+    {
+      "name": "Men-a"
+    },
+    {
+      "name": "Men-b"
+    },
+    {
+      "name": "Men-c"
+    },
+    {
+      "name": "Men-d"
+    },
+    {
+      "name": "Men-e"
+    },
+    {
+      "name": "Women-a"
+    },
+    {
+      "name": "Women-b"
+    },
+    {
+      "name": "Women-c"
+    },
+    {
+      "name": "Women-d"
+    },
+    {
+      "name": "Women-e"
+    },
+    {
+      "name": "Debbie-a"
+    },
+    {
+      "name": "Debbie-b"
+    },
+    {
+      "name": "Debbie-c"
+    },
+    {
+      "name": "Debbie-d"
+    },
+    {
+      "name": "Debbie-e"
+    },
+    {
+      "name": "Frederic-a"
+    },
+    {
+      "name": "Frederic-b"
+    },
+    {
+      "name": "Frederic-c"
+    },
+    {
+      "name": "Frederic-d"
+    },
+    {
+      "name": "Frederic-e"
+    }
+
+  ],
+  "links": [
+    {
+      "source":"Timmy",
+      "target": "Bear",
+      "value":"Timmy朋友1"
+    },
+    {
+      "source":"Timmy",
+      "target": "Cherry",
+      "value":"Timmy朋友2"
+    },
+    {
+      "source":"Timmy",
+      "target": "Debbie",
+      "value":"Timmy朋友3"
+    },
+    {
+      "source":"Timmy",
+      "target": "Judge",
+      "value":"Timmy朋友4"
+    },
+    {
+      "source":"Timmy",
+      "target": "Frederic",
+      "value":"Timmy朋友5"
+    },
+    {
+      "source":"Timmy",
+      "target": "Gillenormand",
+      "value":"Timmy朋友6"
+    },
+    {
+      "source":"Timmy",
+      "target": "Montparnasse",
+      "value":"Timmy朋友7"
+    },
+    {
+      "source":"Timmy",
+      "target": "Women",
+      "value":"Timmy朋友8"
+    },
+    {
+      "source":"Timmy",
+      "target": "Judd",
+      "value":"Timmy朋友9"
+    },
+    {
+      "source":"Timmy",
+      "target": "Men",
+      "value":"Timmy朋友10"
+    },
+    {
+      "source":"Men",
+      "target": "Men-a",
+      "value":"Men朋友0"
+    },
+    {
+      "source":"Men",
+      "target": "Men-b",
+      "value":"Men朋友1"
+    },
+    {
+      "source":"Men",
+      "target": "Men-c",
+      "value":"Men朋友2"
+    },
+    {
+      "source":"Men",
+      "target": "Men-d",
+      "value":"Men朋友3"
+    },
+    {
+      "source":"Men",
+      "target": "Men-e",
+      "value":"Men朋友4"
+    },
+    {
+      "source":"Women",
+      "target": "Women-a",
+      "value":"Women朋友0"
+    },
+    {
+      "source":"Women",
+      "target": "Women-b",
+      "value":"Women朋友1"
+    },
+    {
+      "source":"Women",
+      "target": "Women-c",
+      "value":"Women朋友2"
+    },
+    {
+      "source":"Women",
+      "target": "Women-d",
+      "value":"Women朋友3"
+    },
+    {
+      "source":"Women",
+      "target": "Women-e",
+      "value":"Women朋友4"
+    },
+    {
+      "source":"Debbie",
+      "target": "Debbie-a",
+      "value":"Debbie朋友0"
+    },
+    {
+      "source":"Debbie",
+      "target": "Debbie-b",
+      "value":"Debbie朋友1"
+    },
+    {
+      "source":"Debbie",
+      "target": "Debbie-c",
+      "value":"Debbie朋友2"
+    },
+    {
+      "source":"Debbie",
+      "target": "Debbie-d",
+      "value":"Debbie朋友3"
+    },
+    {
+      "source":"Debbie",
+      "target": "Debbie-e",
+      "value":"Debbie朋友4"
+    },
+    {
+      "source":"Frederic",
+      "target": "Frederic-a",
+      "value":"Frederic朋友0"
+    },
+    {
+      "source":"Frederic",
+      "target": "Frederic-b",
+      "value":"Frederic朋友1"
+    },
+    {
+      "source":"Frederic",
+      "target": "Frederic-c",
+      "value":"Frederic朋友2"
+    },
+    {
+      "source":"Frederic",
+      "target": "Frederic-d",
+      "value":"Frederic朋友3"
+    },
+    {
+      "source":"Frederic",
+      "target": "Frederic-e",
+      "value":"Frederic朋友4"
+    }
+  ]
+}

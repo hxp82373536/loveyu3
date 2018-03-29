@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import {Modal, Table} from 'antd'
 import SignallingDetail from './SignallingDetail'
 
+import "./signlingCheck.css";
+
 const columns = [
   {
     title: 'IMSI',

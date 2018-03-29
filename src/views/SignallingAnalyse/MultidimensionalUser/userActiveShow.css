@@ -1,0 +1,157 @@
+
+.ant-layout .ant-layout-sider{
+    min-width: 260px !important;
+}
+.datePicker{
+    margin: 10px 5px;
+}
+.frontNumber{
+    margin: 10px 5px;
+}
+.frontNumber input{
+    width: auto;
+}
+.ant-layout .searchButton{
+    margin-top: 10px;
+    margin-left: 150px;
+    height: 30px;
+}
+.functionMenu .functionTitle{
+    background-color: #b2d0f7;
+    height: 30px;
+    color: #1093ef;
+    line-height: 30px;
+    margin-bottom: 0;
+}
+/*echarts布局问题*/
+.ant-row .ant-col-15 .echarts-for-react{
+    width: 1036px;
+}
+.ant-row .ant-col-15 .echarts-for-react canvas{
+    width:1036px !important;
+}
+.ant-col-9{
+    height: 100%;
+}
+.communications p{
+    width: 100%;
+    height: 30px;
+    background-color: #78b7f7;
+    text-align: center;
+    line-height: 30px;
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 0px;
+}
+/*通联告警表格头部*/
+.communications .ant-table .ant-table-content .ant-table-body .ant-table-thead{
+    height: 30px;
+}
+.communications .ant-table .ant-table-content .ant-table-body .ant-table-thead tr th{
+    background-color: #b1cff3;
+    padding: 0px 10px;
+    text-align: center;
+    line-height: 30px;
+    color: #3d56a0;
+    font-weight: 700;
+}
+/*通联告警表格内容*/
+.communications .ant-table .ant-table-content .ant-table-body table {
+    border-radius: 10px;
+}
+.communications .ant-table .ant-table-content .ant-table-body .ant-table-tbody{
+    text-align: center;
+}
+.communications .ant-table .ant-table-content .ant-table-body .ant-table-tbody tr td {
+    height: 26px;
+    line-height: 26px;
+    padding: 0px 10px;;
+    border: solid 1px #aaa;
+    border-right: 0px;
+    border-bottom: 0px;
+}
+.communications .ant-table .ant-table-content .ant-table-body .ant-table-tbody tr td:last-child{
+    border-right: solid 1px #aaa;
+}
+.communications .ant-table .ant-table-content .ant-table-body .ant-table-tbody tr:last-child td {
+    border-bottom: solid 1px #aaa;
+}
+/*报文消息*/
+/*.messageNews p{*/
+    /*width: 100%;*/
+    /*height: 30px;*/
+    /*background-color: #78b7f7;*/
+    /*text-align: center;*/
+    /*line-height: 30px;*/
+    /*color: #fff;*/
+    /*font-size: 16px;*/
+    /*margin-bottom: 0px;*/
+/*}*/
+
+/*map信令*/
+/*.mapSign p{*/
+    /*width: 100%;*/
+    /*height: 30px;*/
+    /*background-color: #78b7f7;*/
+    /*text-align: center;*/
+    /*line-height: 30px;*/
+    /*color: #fff;*/
+    /*font-size: 16px;*/
+    /*margin-bottom: 0px;*/
+/*}
+
+/*echarts下方手机卡片信息展示*/
+.ant-col-15 .cardMobileShow {
+    width: 100%;
+    height: 500px;
+}
+/*一机多卡消息*/
+.ant-col-15 .cardMobileShow .mobileCard  {
+    display: inline-block;
+    float: left;
+    width: 50%;
+    height: 100%;
+    border-right: 3px solid #608dd2;
+}
+.ant-col-15 .cardMobileShow .mobileCard p{
+    width: 100%;
+    height: 30px;
+    background-color: #78b7f7;
+    text-align: center;
+    line-height: 30px;
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 0px;
+}
+/*一卡多机消息*/
+.ant-col-15 .cardMobileShow .cardMobile  {
+    display: inline-block;
+    float: right;
+    width: 50%;
+    height: 100%;
+    border-left: 3px solid #608dd2;
+}
+.ant-col-15 .cardMobileShow .cardMobile p{
+    width: 100%;
+    height: 30px;
+    background-color: #78b7f7;
+    text-align: center;
+    line-height: 30px;
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 0px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

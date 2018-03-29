@@ -4,9 +4,13 @@ import {bindActionCreators} from 'redux';
 import CheckTable from './CheckTable'
 import * as ActionCreators from './SignallingCheckRedux'
 
-import { DatePicker,message,Input } from 'antd';
+import { DatePicker,message,Input,Layout ,Button } from 'antd';
+
+//样式
+import "./signlingCheck.css";
 const { RangePicker } = DatePicker;
-const Search = Input.Search;
+// const Search = Input.Search;
+const { Header, Footer, Sider, Content } = Layout;
 
 //es7修饰器写法  需要侵入creact-react-app
 // @connect(
@@ -48,17 +52,33 @@ class SignallingCheck extends React.PureComponent {
   render() {
     return (
     <div>
-      <RangePicker
-        format="YYYY-MM-DD HH:mm"
-        onChange={this.onChange.bind(this)}
-      />
-      <Search
-        placeholder="关键字"
-        enterButton="检索"
-        onSearch={this.onClick.bind(this)}
-        style={{ width: 200 }}
-      />
-      <CheckTable {...this.props}/>
+      <Layout>
+        {/*左边栏*/}
+        <Sider>
+          {/*条件检索*/}
+          <div className="searchCondition">
+            <p>检索条件</p>
+            <RangePicker
+                format="YYYY-MM-DD HH:mm"
+                onChange={this.onChange.bind(this)}
+            />
+            <div className="keyWords">
+              关键字 ： <Input  placeholder="关键字"/>
+            </div>
+            <Button type="primary" className="searchButton" onClick={this.onClick.bind(this)}>搜索</Button>
+          </div>
+
+          <div className="functionMenu">
+            <p>功能菜单</p>
+          </div>
+
+        </Sider>
+        {/*右边内容栏*/}
+        <Content>
+          <CheckTable {...this.props}/>
+        </Content>
+      </Layout>
+
     </div>);
   }
 }
