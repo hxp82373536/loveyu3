@@ -1,0 +1,41 @@
+.preview {
+    height: 30px;
+    background-color: #78b6f7;
+    color: #fff;
+    line-height: 30px;
+    margin-bottom: 0;
+}
+.searchCondition{
+    margin-bottom: 30px;
+}
+.ant-layout .ant-layout-sider .ant-layout-sider-children .searchCondition .searchTitle{
+    background-color: #b2d0f7;
+    height: 30px;
+    color: #1093ef;
+    line-height: 30px;
+    margin-bottom: 0;
+}
+.ant-layout .ant-layout-sider {
+    min-width: 260px !important;
+}
+.datePicker{
+    margin: 10px 5px;
+}
+.frontNumber{
+    margin: 10px 5px;
+}
+.frontNumber input{
+    width: auto;
+}
+.ant-layout .searchButton{
+    margin-top: 10px;
+    margin-left: 150px;
+    height: 30px;
+}
+.functionMenu .functionTitle{
+    background-color: #b2d0f7;
+    height: 30px;
+    color: #1093ef;
+    line-height: 30px;
+    margin-bottom: 0;
+}

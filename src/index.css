@@ -1,4 +1,7 @@
 @import '~antd/dist/antd.css';
+@import './index.less';
+/* @import '/iconfont.css'; */
+
 body {
   margin: 0;
   padding: 0;
