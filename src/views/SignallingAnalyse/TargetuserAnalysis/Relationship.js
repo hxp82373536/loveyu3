@@ -35,7 +35,7 @@ export default class Relationship extends Component{
                         _this.zoomed();
                     });
                 //设置svg元素和g节点的样式的宽高等
-                this.vis = d3.select("body").append("svg:svg")
+                this.vis = d3.select("relationship").append("svg:svg")
                     .attr("width", defaultConfig.width)
                     .attr("height", defaultConfig.height)
                     .call(zoom).on("dblclick.zoom", null);
@@ -167,7 +167,7 @@ export default class Relationship extends Component{
                     }
                 };
                 //初始化详细信息的样式动画及默认展示样式
-                this.tooltip=d3.select("body").append("div")
+                this.tooltip=d3.select("relationship").append("div")
                     .attr("class","tooltip")
                     .attr("opacity",0.0)
                     .on('dblclick',function(){
@@ -214,7 +214,7 @@ export default class Relationship extends Component{
                         _this.highlightObject(d);
                         d3.event.stopPropagation();
                     });
-                d3.select("body").on('dblclick',function(){
+                d3.select("relationship").on('dblclick',function(){
                     dependsNode=dependsLinkAndText=[];
                     _this.highlightObject(null);
                 });
@@ -310,7 +310,7 @@ export default class Relationship extends Component{
                 //     alert("return first state")
                 // }
             }
-            new GroupExplorer('body',{
+            new GroupExplorer('relationship',{
                 data:json
             });
 
@@ -319,9 +319,9 @@ export default class Relationship extends Component{
     }
     render(){
         return(
-            <div>
-                hello
-            </div>
+            <relationship>
+
+            </relationship>
         )
     }
 

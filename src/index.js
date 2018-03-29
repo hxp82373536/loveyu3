@@ -10,14 +10,13 @@ import store from './store.js';
 import registerServiceWorker from './registerServiceWorker';
 import DevTools from './redux/middlewares/DevTools'
 
-import { LocaleProvider } from 'antd';
+import {LocaleProvider} from 'antd';
 import zh_CN from 'antd/lib/locale-provider/zh_CN';
 import 'moment/locale/zh-cn';
 
-
 ReactDOM.render(<Provider store={store}>
   <div>
-    <LocaleProvider locale={zh_CN}><App /></LocaleProvider>
+    <LocaleProvider locale={zh_CN}><App/></LocaleProvider>
     <DevTools/>
   </div>
 </Provider>, document.getElementById('root'));

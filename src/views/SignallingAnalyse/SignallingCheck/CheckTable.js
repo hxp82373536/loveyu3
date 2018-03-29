@@ -60,10 +60,7 @@ class CheckTable extends React.PureComponent {
 
   render() {
     const {
-      total,
-      result,
-      detail_result,
-      loading,
+      total, result, detail_result, loading,
       //error,
       modalVisible
     } = this.props
@@ -86,7 +83,7 @@ class CheckTable extends React.PureComponent {
     return (<div>
       <Table dataSource={result} loding={loading} size="middle" columns={columns} pagination={pagination} rowKey={(r, i) => (i)} onRow={this.onRecord.bind(this)}/>
       <Modal title="信令详情" visible={modalVisible} onOk={this.onOk.bind(this)} onCancel={this.onOk.bind(this)}>
-          <SignallingDetail data={detail_result}/>
+        <SignallingDetail data={detail_result}/>
       </Modal>
     </div>);
   }
