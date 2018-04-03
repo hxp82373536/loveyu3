@@ -1,97 +1,97 @@
 {
   "nodes": [{
       "group": 1,
-      "id": "hxp"
+      "id": "hxp", "img": "cat_2.png"
     },
     {"group": 2,
-      "id": "Bear"
+      "id": "Bear", "img": "cat_3.png"
     },
     {"group": 3,
-      "id": "Cherry"
+      "id": "Cherry", "img": "cat_3.png"
     },
     {"group": 4,
-      "id": "Debbie"
+      "id": "Debbie", "img": "cat_2.png"
     },
     {"group": 5,
-      "id": "Judge"
+      "id": "Judge", "img": "cat_2.png"
     },
     {"group": 6,
-      "id": "Frederic"
+      "id": "Frederic", "img": "cat_1.png"
+    },
+    {"group": 1,
+      "id": "Gillenormand", "img": "cat_1.png"
+    },
+    {"group": 1,
+      "id": "Montparnasse", "img": "cat_2.png"
+    },
+    {"group": 2,
+      "id": "Women", "img": "cat_1.png"
+    },
+    {"group": 3,
+      "id": "Judd", "img": "cat_2.png"
+    },
+    {"group": 5,
+      "id": "Men", "img": "cat_3.png"
+    },
+    {"group": 3,
+      "id": "Men-a", "img": "cat_3.png"
     },
     {"group": 7,
-      "id": "Gillenormand"
+      "id": "Men-b", "img": "cat_2.png"
+    },
+    {"group": 4,
+      "id": "Men-c", "img": "cat_1.png"
+    },
+    {"group": 5,
+      "id": "Men-d", "img": "cat_2.png"
+    },
+    {"group": 6,
+      "id": "Men-e", "img": "cat_2.png"
+    },
+    {"group": 7,
+      "id": "Women-a", "img": "cat_1.png"
+    },
+    {"group": 1,
+      "id": "Women-b", "img": "cat_1.png"
+    },
+    {"group": 1,
+      "id": "Women-c", "img": "cat_2.png"
+    },
+    {"group": 2,
+      "id": "Women-d", "img": "cat_2.png"
+    },
+    {"group": 2,
+      "id": "Women-e", "img": "cat_3.png"
+    },
+    {"group": 2,
+      "id": "Debbie-a", "img": "cat_2.png"
+    },
+    {"group": 2,
+      "id": "Debbie-b", "img": "cat_2.png"
+    },
+    {"group": 4,
+      "id": "Debbie-c", "img": "cat_2.png"
+    },
+    {"group": 5,
+      "id": "Debbie-d", "img": "cat_2.png"
+    },
+    {"group": 6,
+      "id": "Debbie-e", "img": "cat_1.png"
+    },
+    {"group": 7,
+      "id": "Frederic-a", "img": "cat_2.png"
     },
     {"group": 8,
-      "id": "Montparnasse"
+      "id": "Frederic-b", "img": "cat_3.png"
     },
     {"group": 9,
-      "id": "Women"
+      "id": "Frederic-c", "img": "cat_2.png"
     },
-    {"group": 10,
-      "id": "Judd"
+    {"group": 3,
+      "id": "Frederic-d", "img": "cat_3.png"
     },
-    {"group": 11,
-      "id": "Men"
-    },
-    {"group": 12,
-      "id": "Men-a"
-    },
-    {"group": 13,
-      "id": "Men-b"
-    },
-    {"group": 14,
-      "id": "Men-c"
-    },
-    {"group": 15,
-      "id": "Men-d"
-    },
-    {"group": 16,
-      "id": "Men-e"
-    },
-    {"group": 17,
-      "id": "Women-a"
-    },
-    {"group": 18,
-      "id": "Women-b"
-    },
-    {"group": 19,
-      "id": "Women-c"
-    },
-    {"group": 20,
-      "id": "Women-d"
-    },
-    {"group": 21,
-      "id": "Women-e"
-    },
-    {"group": 22,
-      "id": "Debbie-a"
-    },
-    {"group": 23,
-      "id": "Debbie-b"
-    },
-    {"group": 24,
-      "id": "Debbie-c"
-    },
-    {"group": 25,
-      "id": "Debbie-d"
-    },
-    {"group": 26,
-      "id": "Debbie-e"
-    },
-    {"group": 27,
-      "id": "Frederic-a"
-    },
-    {"group": 28,
-      "id": "Frederic-b"
-    },
-    {"group": 29,
-      "id": "Frederic-c"
-    },
-    {"group": 30,
-      "id": "Frederic-d"
-    },
-    {"group": 31,
-      "id": "Frederic-e"
+    {"group": 3,
+      "id": "Frederic-e", "img": "cat_1.png"
     }
   ],
   "links": [{

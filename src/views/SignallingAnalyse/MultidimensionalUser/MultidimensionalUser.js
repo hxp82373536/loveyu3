@@ -10,10 +10,10 @@ import {
 } from 'antd';
 import ReactEcharts from 'echarts-for-react';
 
-import "./userActiveShow.css"
+import "./MultidimensionalUser.css"
 const {Sider} = Layout;
 
-export default class UserActiveShow extends Component {
+export default class MultidimensionalUser extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -333,7 +333,7 @@ export default class UserActiveShow extends Component {
                   width: 80,
                   height: 80
                 }}>
-                <img src="/inconfont.svg" alt="图片加载失败"/>
+                <img src="" alt="图片加载失败"/>
                 <p>活跃度准则</p>
               </div>
             </div>

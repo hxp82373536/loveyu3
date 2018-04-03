@@ -10,7 +10,7 @@ import {
 } from 'antd';
 import ReactEcharts from 'echarts-for-react';
 //样式
-import "./dataAnalysis.css";
+import "./SignallingdataAnalysis.css";
 
 const {Sider} = Layout;
 
@@ -45,7 +45,7 @@ const data = [
   }
 ];
 
-export default class DataAnalysis extends Component {
+export default class SignallingdataAnalysis extends Component {
   constructor(props) {
     super(props)
     this.state = {

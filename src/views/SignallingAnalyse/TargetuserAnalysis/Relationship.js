@@ -17,10 +17,10 @@ export default class Relationship extends Component{
                 defaultConfig.data.links.forEach(function (e) {
                     if(typeof e.source!="number"&&typeof e.target!="number"){
                         var sourceNode = defaultConfig.data.nodes.filter(function (n) {
-                                return n.name === e.source;
+                                return n.id === e.source;
                             })[0],
                             targetNode = defaultConfig.data.nodes.filter(function (n) {
-                                return n.name === e.target;
+                                return n.id === e.target;
                             })[0];
                         e.source = sourceNode;
                         e.target = targetNode;
@@ -51,7 +51,6 @@ export default class Relationship extends Component{
                     .force("link", d3.forceLink(defaultConfig.data.links).distance(defaultConfig.distance))
                     .force("charge", d3.forceManyBody())
                     .force("center", d3.forceCenter(defaultConfig.width / 2, defaultConfig.height / 2))
-                    .force("charge",d3.forceManyBody())
                     .force("collide",d3.forceCollide(60).strength(0.2).iterations(5))
 
                 this.vis.append("svg:defs").selectAll("marker")
@@ -157,7 +156,7 @@ export default class Relationship extends Component{
                 //个体的详细信息
                 this.highlightToolTip=function(obj){
                     if(obj){
-                        _this.tooltip.html("<div class='title'>"+obj.name+"的资料</div><table class='detail-info'><tr><td class='td-label'>照片：</td><td>照片地址xxxxxx</td></tr>" +
+                        _this.tooltip.html("<div class='title'>"+obj.id+"的资料</div><table class='detail-info'><tr><td class='td-label'>照片：</td><td>照片地址xxxxxx</td></tr>" +
                             "<tr><td class='td-label'>其他xx：</td><td>其他资料xxxx</td></tr><tr><td class='td-label'>链接：</td><td><a href='http://www.baidu.com'>www.baidu.com</a></td></tr></table>")
                             .style("left",(d3.event.pageX+40)+"px")
                             .style("top",(d3.event.pageY-40)+"px")
@@ -231,7 +230,7 @@ export default class Relationship extends Component{
                     .attr("class", "nodetext")
                     .attr("dy", "30px")
                     .attr('text-anchor','middle')
-                    .text(function(d) { return d.name })
+                    .text(function(d) { return d.id })
                     //节点人的名字颜色D3.Js第四版本
                     .attr('fill',function(d,i){
                         return _this.color(i);
