@@ -7,7 +7,8 @@ import graph from './mock-d3.json';
 // exit() ：获得DOM元素集中比数据集中多出来的数据
 const WIDTH = 960
 const HEIGHT = 600
-const DISTANCE = 150
+const DISTANCE = 200
+const R=25
 class UserdataAnalysis extends Component {
   componentDidMount() {
     // 在第一次渲染后调用，只在客户端。之后组件已经生成了对应的DOM结构，可以通过this.getDOMNode()来进行访问。 如果你想和其他JavaScript框架一起使用，可以在这个方法中调用setTimeout, setInterval或者发送AJAX请求等操作(防止异部操作阻塞UI)。
@@ -61,36 +62,47 @@ class UserdataAnalysis extends Component {
     append("line"); //在占位符上面生成折线（用path画）
 
     //边上的文字（人物之间的关系）
-    let linetext = svg.append("g").attr("class", "linetext").selectAll(".linetext").data(graph.nodes).enter().append("text"). //创建园
-    text(function(d) {
-      return d.relation;
-    });
+    // let linetext = svg.append("g").attr("class", "linetext").selectAll(".linetext").data(graph.nodes).enter().append("text"). //创建园
+    // text(function(d) {
+    //   //console.info(d)
+    //   return d.id;
+    // });
+
+
     let defs = svg.append("g").attr("class", "imgdefs")
     function getimg(d, i) {
       var catpattern = defs.append("pattern").attr("id", "catpattern" + i).attr("height", 1).attr("width", 1)
-      catpattern.append("image").attr("x", -(50 / 2 - 12)).attr("y", -(50 / 2 - 12)).attr("width", 50).attr("height", 50).attr("xlink:href", "/img/"+d.img)
+      catpattern.append("image").attr("x", 0).attr("y", 0).attr("width", R*2).attr("height", R*2).attr("xlink:href", "/img/"+d.img)
       return "url(#catpattern" + i + ")";
     }
 
     let node = svg.append("g").attr("class", "nodes").selectAll("circle").data(graph.nodes).enter().append("circle"). //创建园
-    attr("r", 16). //设置半径
+    attr("r", R). //设置半径
 		attr("stroke",function(d,i){
-			console.info(d,i)
+			//console.info(d,i)
 			return color(d.group)
 		}).
+    //text(function(d) { return d.id }).
     attr("fill", function(d, i) {
       let result = getimg(d, i)
-      console.info(result)
+      //console.info(result)
       return result
     }).on("mouseover", function(d, i) {
       console.info(111)
     }).on("mouseout", function(d, i) {
       console.info(222)
-    }).call(d3.drag().on("start", dragstarted).on("drag", dragged).on("end", dragended)).on('click', clickNode);
+    })
+    .call(d3.drag().on("start", dragstarted).on("drag", dragged).on("end", dragended)).on('click', clickNode)
+    ;
 
-    node.append("title").text(function(d) {
-      return d.id;
-    });
+    let nodes_text = svg.append("g")
+    .attr("class","nodes_text").selectAll("nodes_text")
+                        .data(graph.nodes)
+                        .enter()
+                        .append("text")
+                        .text(function(d){
+                            return d.id;
+                        });
 
     simulation.nodes(graph.nodes).on("tick", ticked);
 
@@ -107,11 +119,30 @@ class UserdataAnalysis extends Component {
         return d.target.y;
       });
 
+      // let arcPath=function(leftHand, d) {
+      //     var start = leftHand ? d.source : d.target,
+      //         end = leftHand ? d.target : d.source,
+      //         dx = end.x - start.x,
+      //         dy = end.y - start.y,
+      //         dr = Math.sqrt(dx * dx + dy * dy),
+      //         sweep = leftHand ? 0 : 1;
+      //     return "M" + start.x + "," + start.y + "A" + dr + "," + dr +
+      //         " 0 0," + sweep + " " + end.x + "," + end.y;
+      // };
+
+      // linetext.attr("d", function(d) {
+      //   console.info(d)
+      //     //return arcPath(d.source.x < d.target.x, d);
+      // });
+
       node.attr("cx", function(d) {
         return d.x;
       }).attr("cy", function(d) {
         return d.y;
       });
+
+      nodes_text.attr("y",function(d){ return d.y });
+      nodes_text.attr("x",function(d){ return d.x + R; });
     }
     // });
 
